@@ -51,7 +51,7 @@ export const Slide = styled.div.attrs({
 export const SlideItem = styled.div`
   display: inline-flex;
   width: ${ITEM_WIDTH}px;
-  margin-right: 60px;
+  margin-right: 20px;
   height: 100%;
   padding-left: ${(props) => props.itemPadding}px;
   justify-content: center;
@@ -115,12 +115,12 @@ const UISlider = ({ children, height = 250 }) => {
     >
       {!reachedEnd && (
         <Arrow type="forward" onClick={moveForward}>
-          Next
+          ►
         </Arrow>
       )}
       {hasScrolled && (
         <Arrow type="back" onClick={moveBack}>
-          Back
+          ◄
         </Arrow>
       )}
 
