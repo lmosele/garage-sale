@@ -19,18 +19,18 @@ export const Arrow = styled.button`
   outline: none;
   border-radius: 40px;
   background-color: white;
-  box-shadow: 5px 5px 5px lightgray;;
+  box-shadow: 5px 5px 5px lightgray;
   transition: box-shadow 0.5 ease-in-out;
   border: 1px solid lightgray;
   &:focus,
   &:hover {
     cursor: pointer;
-    box-shadow: 5px 5px 5px lightgray;;
+    box-shadow: 5px 5px 5px lightgray;
     transition: box-shadow 0.5 ease-in-out;
   }
   &:active {
     background-color: lightgray;
-    box-shadow: 5px 2px 5px lightgray;;
+    box-shadow: 5px 2px 5px lightgray;
     transition: box-shadow 0.5 ease-in-out;
   }
   &:active .svg-inline--fa {
@@ -51,7 +51,7 @@ export const Slide = styled.div.attrs({
 export const SlideItem = styled.div`
   display: inline-flex;
   width: ${ITEM_WIDTH}px;
-  margin: 55px;
+  margin-right: 60px;
   height: 100%;
   padding-left: ${(props) => props.itemPadding}px;
   justify-content: center;
@@ -63,7 +63,7 @@ export const Container = styled.div`
   height: ${(props) => props.height}px;
   width: 100%;
   max-width: 1240px;
-  background-color: ${(props) => props.theme[props.background]};
+  background-color: white;
 `;
 
 export const SliderContainer = styled.div`
@@ -105,7 +105,7 @@ const UISlider = ({ children, height = 250 }) => {
   const hasScrolled = currentX < 0;
   return (
     <Container
-      innerRef={containerRef}
+      ref={containerRef}
       height={height}
       className={`width-${containerBox.width} ${classNames({
         reachedEnd,
@@ -126,7 +126,7 @@ const UISlider = ({ children, height = 250 }) => {
 
       <SliderContainer>
         <Slide
-          innerRef={slideRef}
+          ref={slideRef}
           translateX={currentX}
           transitionLengthInMillis={200}
         >

@@ -2,11 +2,17 @@ import React, { useEffect, useState } from "react";
 import SheetDb from "sheetdb-js";
 import styled from "styled-components";
 
+import { Grid, Row, Col } from "react-flexbox-grid";
+
 import ItemCard from "./components/blocks/ItemCard";
 import UIModal from "./components/blocks/Modal";
 
-const Grid = ({ items, callback }) => {
-  return items.map((item) => <ItemCard item={item} callback={callback} />);
+const CardGrid = ({ items, callback }) => {
+  return items.map((item) => (
+    <Col lg={4} md={6} xs={12}>
+      <ItemCard item={item} callback={callback} />
+    </Col>
+  ));
 };
 
 function App(props) {
@@ -22,6 +28,70 @@ function App(props) {
     // );
 
     const mockResult = [
+      {
+        id: "1",
+        itemName: "Sony A7 Camera Kit",
+        itemCondition: "Good",
+        itemDescription: "Some long description about cameras",
+        image1:
+          "https://images.craigslist.org/00E0E_dxuBamfbGu4_0lM0t2_600x450.jpg",
+      },
+      {
+        id: "1",
+        itemName: "Sony A7 Camera Kit",
+        itemCondition: "Good",
+        itemDescription: "Some long description about cameras",
+        image1:
+          "https://images.craigslist.org/00E0E_dxuBamfbGu4_0lM0t2_600x450.jpg",
+      },
+      {
+        id: "1",
+        itemName: "Sony A7 Camera Kit",
+        itemCondition: "Good",
+        itemDescription: "Some long description about cameras",
+        image1:
+          "https://images.craigslist.org/00E0E_dxuBamfbGu4_0lM0t2_600x450.jpg",
+      },
+      {
+        id: "1",
+        itemName: "Sony A7 Camera Kit",
+        itemCondition: "Good",
+        itemDescription: "Some long description about cameras",
+        image1:
+          "https://images.craigslist.org/00E0E_dxuBamfbGu4_0lM0t2_600x450.jpg",
+      },
+      {
+        id: "1",
+        itemName: "Sony A7 Camera Kit",
+        itemCondition: "Good",
+        itemDescription: "Some long description about cameras",
+        image1:
+          "https://images.craigslist.org/00E0E_dxuBamfbGu4_0lM0t2_600x450.jpg",
+      },
+      {
+        id: "1",
+        itemName: "Sony A7 Camera Kit",
+        itemCondition: "Good",
+        itemDescription: "Some long description about cameras",
+        image1:
+          "https://images.craigslist.org/00E0E_dxuBamfbGu4_0lM0t2_600x450.jpg",
+      },
+      {
+        id: "1",
+        itemName: "Sony A7 Camera Kit",
+        itemCondition: "Good",
+        itemDescription: "Some long description about cameras",
+        image1:
+          "https://images.craigslist.org/00E0E_dxuBamfbGu4_0lM0t2_600x450.jpg",
+      },
+      {
+        id: "1",
+        itemName: "Sony A7 Camera Kit",
+        itemCondition: "Good",
+        itemDescription: "Some long description about cameras",
+        image1:
+          "https://images.craigslist.org/00E0E_dxuBamfbGu4_0lM0t2_600x450.jpg",
+      },
       {
         id: "1",
         itemName: "Sony A7 Camera Kit",
@@ -89,12 +159,14 @@ function App(props) {
   };
 
   return (
-    <div>
+    <Grid>
       {modalVisible === true && (
         <UIModal modalState={modalState} handleClose={handleModalClose} />
       )}
-      <Grid items={items} callback={handleModalOpen} />
-    </div>
+      <Row between="xs">
+        <CardGrid items={items} callback={handleModalOpen} />
+      </Row>
+    </Grid>
   );
 }
 

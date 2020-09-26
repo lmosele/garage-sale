@@ -3,39 +3,39 @@ import styled from "styled-components";
 
 import UISkeleton from "./UISkeleton";
 
-const CardContainer = styled.div`
-  position: relative;
+const CardImage = styled.div`
+  display: flex;
   width: 100%;
-  height: 50vh;
-  padding: 20px;
+  height: 300px;
+  background-image: url(${(props) => props.src});
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
 `;
 
 const Card = styled.div`
-  position: absolute;
-  left: 30%;
-  top: 30%;
   display: flex;
   flex-direction: column;
   background: white;
   border: 1px solid lightgray;
   border-radius: 6px;
-  width: 300px;
   height: auto;
-  padding: 10px 20px;
   z-index: 2;
+  margin: 20px;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+    transition: box-shadow 0.3s ease-in-out;
+    ${CardImage} {
+      background-position: 100% 100%;
+      transition: background-position 0.5s ease-in-out;
+    }
+  }
 `;
 
-const CardImage = styled.div`
-  position: absolute;
-  left: 20%;
-  top: 20%;
-  display: flex;
-  max-width: 250px;
-  width: 250px;
-  height: 300px;
-  background-image: url(${(props) => props.src});
-  background-position: 50% 50%;
-  z-index: 1;
+const Content = styled.div`
+  padding: 20px;
 `;
 
 const ItemCard = ({ item, callback }) => {
@@ -44,14 +44,14 @@ const ItemCard = ({ item, callback }) => {
   };
 
   return (
-    <CardContainer role="button" onClick={handleCallBack}>
+    <Card role="button" onClick={handleCallBack}>
       <CardImage src={item.image1} />
-      <Card>
+      <Content>
         {item ? <h2>{item.itemName}</h2> : <UISkeleton />}
         {item ? <span>{item.itemCondition}</span> : <UISkeleton />}
         {item ? <p>{item.itemDescription}</p> : <UISkeleton />}
-      </Card>
-    </CardContainer>
+      </Content>
+    </Card>
   );
 };
 
