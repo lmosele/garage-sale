@@ -26,9 +26,11 @@ const IntroParagraph = styled.p`
 const IntroLogo = styled.figure`
   display: block;
   margin: 0 auto;
-  background-color: #ef8354;
-  width: 100px;
-  height: 80px;
+  background: url(https://i.imgur.com/zjpCNPR.png);
+  width: 200px;
+  height: 100px;
+  background-size:cover;
+  background-position: 50% 50%;
   margin-top: 40px;
 `;
 

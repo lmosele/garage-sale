@@ -103,6 +103,7 @@ const FormContainer = styled.div`
 `;
 
 const Bid = styled.h3`
+  font-size: 25px;
   text-align: right;
   color: #ef8354;
   border-bottom: 1px solid #ef8354;
