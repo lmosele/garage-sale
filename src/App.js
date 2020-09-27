@@ -236,7 +236,7 @@ function App(props) {
         <UIModal modalState={modalState} handleClose={handleModalClose} />
       )}
       <Row center="xs">
-        <Col xs={5}>
+        <Col xs={8} sm={6}>
           <IntroLogo />
           <IntroParagraph>
             This is my garage sale. Feel free to bid on what you see, I will
