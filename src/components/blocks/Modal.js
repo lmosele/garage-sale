@@ -255,7 +255,7 @@ const UIModal = ({ modalState, handleClose }) => {
           </Col>
         </Row>
         <Row>
-          <Col xs={8}>
+          <Col xs={12} md={8}>
             <Bid>Current Bid: ${highestBid}</Bid>
             <p>Condition: {itemCondition}</p>
             <p>{itemDescription}</p>
@@ -275,7 +275,7 @@ const UIModal = ({ modalState, handleClose }) => {
               </UISlider.Item>
             </UISlider>
           </Col>
-          <Col xs={4}>
+          <Col xs={12} md={4}>
             <Inputs
               minBid={highestBid}
               formState={formState}
