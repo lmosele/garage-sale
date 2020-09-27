@@ -7,6 +7,31 @@ import { Grid, Row, Col } from "react-flexbox-grid";
 import ItemCard from "./components/blocks/ItemCard";
 import UIModal from "./components/blocks/Modal";
 
+const IntroParagraph = styled.p`
+  text-align: left;
+  font-size: 17px;
+  color: white;
+  a {
+    text-decoration: none;
+    color: #ef8354;
+    padding: 2px 4px;
+    border-radius: 2px;
+    &:hover {
+      background-color: #ef8354;
+      color: white;
+    }
+  }
+`;
+
+const IntroLogo = styled.figure`
+  display: block;
+  margin: 0 auto;
+  background-color: #ef8354;
+  width: 100px;
+  height: 80px;
+  margin-top: 40px;
+`;
+
 const fakeresults = [
   {
     userEmail: "lucasmosele@gmail.com",
@@ -182,17 +207,20 @@ function App(props) {
 
   const handleModalOpen = (item) => {
     if (item.id !== modalState.id) {
-      // SheetDb.read("https://sheetdb.io/api/v1/m59ar6rgiqwz8", {
-      //   itemId: item.id,
-      // }).then((results) => {
-      //   const highestBid = getHighestBid(results);
-      //   setModalState(Object.assign(item, highestBid));
-      //   setModalVisible(true);
-      // });
+      SheetDb.read("https://sheetdb.io/api/v1/m59ar6rgiqwz8", {
+        search: { itemId: item.id },
+      })
+        .then((results) => {
+          console.log(results)
+          const highestBid = getHighestBid(results);
+          setModalState(Object.assign(item, highestBid));
+          setModalVisible(true);
+        })
+        .then((error) => {});
 
-      const highestBid = getHighestBid(fakeresults);
-      setModalState(Object.assign(item, highestBid));
-      setModalVisible(true);
+      // const highestBid = getHighestBid(fakeresults);
+      // setModalState(Object.assign(item, highestBid));
+      // setModalVisible(true);
     } else {
       setModalVisible(true);
     }
@@ -207,6 +235,16 @@ function App(props) {
       {modalVisible === true && (
         <UIModal modalState={modalState} handleClose={handleModalClose} />
       )}
+      <Row center="xs">
+        <Col xs={5}>
+          <IntroLogo />
+          <IntroParagraph>
+            This is my garage sale. Feel free to bid on what you see, I will
+            email you personally if you win! If you want to reach out to me
+            directly <a href="mailto:lucasmosele@gmail.com">email me</a>
+          </IntroParagraph>
+        </Col>
+      </Row>
       <Row between="xs">
         <CardGrid items={items} callback={handleModalOpen} />
       </Row>
