@@ -19,18 +19,18 @@ export const Arrow = styled.button`
   outline: none;
   border-radius: 40px;
   background-color: white;
-  box-shadow: 5px 5px 5px lightgray;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   transition: box-shadow 0.5 ease-in-out;
   border: 1px solid lightgray;
   &:focus,
   &:hover {
     cursor: pointer;
-    box-shadow: 5px 5px 5px lightgray;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
     transition: box-shadow 0.5 ease-in-out;
   }
   &:active {
     background-color: lightgray;
-    box-shadow: 5px 2px 5px lightgray;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.7);
     transition: box-shadow 0.5 ease-in-out;
   }
   &:active .svg-inline--fa {
