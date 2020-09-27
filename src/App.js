@@ -29,7 +29,7 @@ const IntroLogo = styled.figure`
   background: url(https://i.imgur.com/zjpCNPR.png);
   width: 200px;
   height: 100px;
-  background-size:cover;
+  background-size: cover;
   background-position: 50% 50%;
   margin-top: 40px;
 `;
@@ -190,12 +190,16 @@ function App(props) {
   const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
-    // SheetDb.read("https://sheetdb.io/api/v1/pmtcj1407cc5q", {}).then(
-    //   (result) => {
-    //     console.log(result)
-    //     setItems(result);
-    //   }
-    // );
+    SheetDb.read("https://sheetdb.io/api/v1/pmtcj1407cc5q", {}).then(
+      (result) => {
+        setItems(result);
+      },
+      (error) => {
+        alert("Something went wrong, try refreshing the page");
+        console.error(error);
+        setItems(mockResult);
+      }
+    );
 
     setItems(mockResult);
   }, []);
@@ -211,18 +215,17 @@ function App(props) {
     if (item.id !== modalState.id) {
       SheetDb.read("https://sheetdb.io/api/v1/m59ar6rgiqwz8", {
         search: { itemId: item.id },
-      })
-        .then((results) => {
-          console.log(results)
+      }).then(
+        (results) => {
           const highestBid = getHighestBid(results);
           setModalState(Object.assign(item, highestBid));
           setModalVisible(true);
-        })
-        .then((error) => {});
-
-      // const highestBid = getHighestBid(fakeresults);
-      // setModalState(Object.assign(item, highestBid));
-      // setModalVisible(true);
+        },
+        (error) => {
+          alert("Something went wrong, try refreshing the page");
+          console.error(error);
+        }
+      );
     } else {
       setModalVisible(true);
     }

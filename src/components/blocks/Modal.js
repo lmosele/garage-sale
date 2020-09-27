@@ -222,24 +222,23 @@ const UIModal = ({ modalState, handleClose }) => {
     event.preventDefault();
 
     const time = Date.now();
-    setFormState((prev) => ({
-      ...prev,
+
+    const metaData = Object.assign(formState, {
       bidTime: time,
       itemId: id,
       itemName: itemName,
-    }));
-    setStatus("success");
+    });
 
-    // SheetDb.write("https://sheetdb.io/api/v1/m59ar6rgiqwz8", {
-    //   data: formState,
-    // }).then(
-    //   (result) => {
-    //     console.log(result);
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
+    SheetDb.write("https://sheetdb.io/api/v1/m59ar6rgiqwz8", {
+      data: metaData,
+    }).then(
+      (result) => {
+        setStatus("success");
+      },
+      (error) => {
+        setStatus("error");
+      }
+    );
   };
 
   return (
