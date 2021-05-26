@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+I know its ugly! 
 
 This website was whipped up in a day to sell some stuff. It uses React (Hooks), Styled Components, Flexbox-Grid & SheetDbs as an API. 
 
