@@ -1,6 +1,6 @@
 I know its ugly! 
 
-[Demo](http://bazar.lmosele.com)
+[Demo](http://bazaar.lmosele.com)
 
 This website was whipped up in a day to sell some stuff. It uses React (Hooks), Styled Components, Flexbox-Grid & SheetDbs as an API. 
 
