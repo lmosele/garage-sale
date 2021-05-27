@@ -1,5 +1,7 @@
 I know its ugly! 
 
+[Demo](bazar.lmosele.com)
+
 This website was whipped up in a day to sell some stuff. It uses React (Hooks), Styled Components, Flexbox-Grid & SheetDbs as an API. 
 
 Not sure why you'd run this locally but to get it running, run node 10+ and hit `npm run start`.
